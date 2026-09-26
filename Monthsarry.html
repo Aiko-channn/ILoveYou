@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>A Letter For You ♡</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 40px 20px;
+
+            background: #d8c0a8;
+            color: #493a32;
+
+            overflow-x: hidden;
+        }
+
+        
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+
+            pointer-events: none;
+            opacity: 0.25;
+
+            background-image:
+                radial-gradient(
+                    #765f4d 0.7px,
+                    transparent 0.7px
+                );
+
+            background-size: 8px 8px;
+        }
+
+        .page {
+            width: 950px;
+            max-width: 100%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            gap: 65px;
+        }
+
+
+        
+
+        .flower-area {
+            width: 280px;
+            height: 470px;
+
+            position: relative;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            /* Only one overall tilt */
+            transform: rotate(-2deg);
+        }
+
+        .flower {
+            position: relative;
+
+            width: 230px;
+            height: 430px;
+        }
+
+        
+
+        .stem {
+            position: absolute;
+
+            width: 9px;
+            height: 280px;
+
+            left: 110px;
+            top: 140px;
+
+            background: #58734e;
+
+            border-radius: 10px;
+
+            
+            transform: rotate(1deg);
+
+            z-index: 1;
+        }
+
+        
+
+        .leaf {
+            position: absolute;
+
+            width: 95px;
+            height: 42px;
+
+            background: #6d875f;
+
+            border-radius: 100% 0 100% 0;
+
+            z-index: 2;
+        }
+
+        .leaf.left {
+            left: 28px;
+            top: 280px;
+
+            transform: rotate(-20deg);
+        }
+
+        .leaf.right {
+            left: 110px;
+            top: 335px;
+
+            transform: rotate(160deg);
+        }
+
+        
+
+        .flower-head {
+            position: absolute;
+
+            width: 210px;
+            height: 210px;
+
+            top: 15px;
+            left: 10px;
+
+            z-index: 3;
+        }
+
+        .petal {
+            position: absolute;
+
+            width: 72px;
+            height: 110px;
+
+            left: 69px;
+            top: 48px;
+
+            background: #bd7279;
+
+            border-radius: 55% 55% 45% 45%;
+
+            transform-origin: 50% 85%;
+        }
+
+        .petal:nth-child(1) {
+            transform: rotate(0deg) translateY(-30px);
+        }
+
+        .petal:nth-child(2) {
+            transform: rotate(60deg) translateY(-30px);
+        }
+
+        .petal:nth-child(3) {
+            transform: rotate(120deg) translateY(-30px);
+        }
+
+        .petal:nth-child(4) {
+            transform: rotate(180deg) translateY(-30px);
+        }
+
+        .petal:nth-child(5) {
+            transform: rotate(240deg) translateY(-30px);
+        }
+
+        .petal:nth-child(6) {
+            transform: rotate(300deg) translateY(-30px);
+        }
+
+        .flower-center {
+            position: absolute;
+
+            width: 55px;
+            height: 55px;
+
+            left: 78px;
+            top: 78px;
+
+            border-radius: 50%;
+
+            background: #d2a452;
+
+            z-index: 4;
+        }
+
+
+   
+
+        .letter {
+            position: relative;
+
+            width: 480px;
+            min-height: 620px;
+
+            padding: 55px 60px;
+
+            background: #fff9e9;
+
+            box-shadow:
+                4px 6px 0 rgba(60, 43, 31, 0.08),
+                0 18px 35px rgba(60, 43, 31, 0.18);
+
+            transform: rotate(1deg);
+
+            border: 1px solid #eadbc4;
+        }
+
+
+        .letter::before {
+            content: "";
+
+            position: absolute;
+            inset: 12px;
+
+            border: 1px solid rgba(130, 95, 70, 0.18);
+
+            pointer-events: none;
+        }
+
+        .title {
+            margin: 0;
+
+            text-align: center;
+
+            font-family: "Caveat", cursive;
+
+            font-size: 48px;
+            font-weight: 500;
+
+            color: #754d47;
+        }
+
+        .heart {
+            text-align: center;
+
+            margin: 5px 0 30px;
+
+            font-family: "Caveat", cursive;
+
+            font-size: 25px;
+
+            color: #a85f65;
+        }
+
+
+
+        .message {
+            min-height: 180px;
+
+            font-family: "Caveat", cursive;
+
+            font-size: 25px;
+
+            line-height: 1.55;
+
+            color: #493b34;
+
+            white-space: pre-line;
+        }
+
+
+
+        .photo {
+            width: 230px;
+
+            margin: 25px auto 0;
+
+            padding: 9px 9px 28px;
+
+            background: white;
+
+            box-shadow:
+                0 5px 12px rgba(50, 35, 25, 0.17);
+
+            transform: rotate(-2deg);
+
+            position: relative;
+        }
+
+        .photo img {
+            display: block;
+
+            width: 100%;
+            height: 155px;
+
+            object-fit: cover;
+
+            background: #eee3d5;
+        }
+
+        .photo-caption {
+            position: absolute;
+
+            bottom: 3px;
+            left: 0;
+            right: 0;
+
+            text-align: center;
+
+            font-family: "Caveat", cursive;
+
+            font-size: 18px;
+
+            color: #80665a;
+        }
+
+
+        .signature {
+            margin-top: 25px;
+
+            text-align: right;
+
+            font-family: "Caveat", cursive;
+
+            font-size: 28px;
+
+            color: #754d47;
+        }
+
+
+        
+        @media (max-width: 800px) {
+
+            body {
+                padding: 25px 15px;
+                align-items: flex-start;
+            }
+
+            .page {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .flower-area {
+                width: 260px;
+                height: 330px;
+
+                transform: scale(0.75) rotate(-2deg);
+
+                margin-bottom: -50px;
+            }
+
+            .letter {
+                width: 100%;
+                min-height: auto;
+
+                padding: 50px 30px;
+            }
+
+            .title {
+                font-size: 42px;
+            }
+
+            .message {
+                font-size: 23px;
+            }
+
+            .photo {
+                max-width: 230px;
+            }
+        }
+
+        @media (max-width: 420px) {
+
+            body {
+                padding: 15px 10px;
+            }
+
+            .flower-area {
+                transform: scale(0.68) rotate(-2deg);
+
+                margin-bottom: -75px;
+            }
+
+            .letter {
+                padding: 45px 24px;
+            }
+
+            .letter::before {
+                inset: 9px;
+            }
+
+            .title {
+                font-size: 38px;
+            }
+
+            .message {
+                font-size: 22px;
+            }
+
+            .photo {
+                width: 200px;
+            }
+
+            .photo img {
+                height: 140px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="page">
+
+
+        <div class="flower-area">
+
+            <div class="flower">
+
+                <div class="flower-head">
+
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+
+                    <div class="flower-center"></div>
+
+                </div>
+
+                <div class="stem"></div>
+
+                <div class="leaf left"></div>
+                <div class="leaf right"></div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="letter">
+
+            <h1 class="title">
+                For You ♡
+            </h1>
+
+            <div class="heart">
+                ── ♡ ──
+            </div>
+
+
+            <div class="message">
+
+                 I just wanted to tell you that I really appreciate having you in my life. I may not always say it, but you mean a lot to me. I genuinely enjoy talking to you, spending time with you, and even just hearing about the little things going on in your day.
+
+I love how comfortable I feel around you. I don’t feel like I have to pretend to be someone else, and that’s something I really value. You make ordinary moments feel special without even trying.
+
+I know we both have our own lives and things going on, and that’s completely okay. I don’t need to be with you every second. I’m just happy knowing that we have each other and that I get to share a part of my life with you.
+
+I care about you more than you probably realize, and I’m really grateful for every moment we get to spend together. I hope we keep making memories, laughing at stupid things, supporting each other, and growing together.
+
+I love you, and honestly, I’m just really happy it’s you. ❤️
+
+            </div>
+
+
+
+            <div class="photo">
+
+                <img
+                    src="3d-man-holding-a-white-rose.jpg"
+                    alt="Sorry, i don't have money to buy you flowers. but i promise to love you as much as i could."
+                >
+
+                <div class="photo-caption">
+                    a little memory ♡
+                </div>
+
+            </div>
+
+
+
+            <div class="signature">
+                I love you so much baby ♡
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+</html>
